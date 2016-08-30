@@ -1,0 +1,29 @@
+{
+  "name": "node-beauty-uuwise",
+  "version": "1.0.0",
+  "description": "uuwise module for node-beauty",
+  "private": false,
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sixihaoyue/node-beauty-uuwise.git"
+  },
+  "dependencies": {
+    "lodash": "*",
+    "request": "*",
+    "bluebird": "*"
+  },
+  "keywords": [
+    "node-beauty",
+    "uuwise"
+  ],
+  "author": "sixihaoyue <sixihaoyue@qq.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sixihaoyue/node-beauty-uuwise/issues"
+  },
+  "homepage": "https://github.com/sixihaoyue/node-beauty-uuwise#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
