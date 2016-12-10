@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "bluebird": "*",
-    "request": "*",
+    "requestretry": "*",
     "lodash": "*"
   },
   "devDependencies": {},

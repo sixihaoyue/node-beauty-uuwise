@@ -1,7 +1,11 @@
 'use strict';
 let crypto = require('crypto'), _ = require('lodash'),
     Promise = require('bluebird'), fs = require('fs'),
-    request = Promise.promisifyAll(require('request'));
+    request = Promise.promisifyAll(require('requestretry').defaults({
+      maxAttempts: 5,
+      retryDelay: 5000,
+      retryStrategy: (err, response, body) =>  err || response.statusCode >= 500
+    }));
 let funMd5 = (content) => crypto.createHash('md5').update(content).digest('hex').toUpperCase();
 
 function UuApi() {
@@ -127,7 +131,7 @@ function UuApi() {
         }).catch((e) => reject(e));
       });
     },
-    getPoint: function() {
+    getPoint: () => {
       return new Promise((resolve, reject) => {
         if (_.isEmpty(self.userName) || _.isEmpty(self.userPassword)) {
           throw new Error('[getPoint] userName or passWord is empty!');
@@ -153,4 +157,5 @@ function UuApi() {
     getResult: funGetResult,
   }
 };
+
 module.exports = new UuApi();
