@@ -4,7 +4,7 @@ let crypto = require('crypto'), _ = require('lodash'),
     request = Promise.promisifyAll(require('requestretry').defaults({
       maxAttempts: 5,
       retryDelay: 5000,
-      retryStrategy: (err, response, body) =>  err || response.statusCode >= 500
+      retryStrategy: (err, r) =>  err || r.statusCode >= 500
     }));
 let funMd5 = (content) => crypto.createHash('md5').update(content).digest('hex').toUpperCase();
 
@@ -157,5 +157,4 @@ function UuApi() {
     getResult: funGetResult,
   }
 };
-
 module.exports = new UuApi();

@@ -20,7 +20,7 @@ uuwise.init = (name, c, callback) => {
     .catch((error) => funAssert(error));
 };
 
-uuwise.getCode = (imgPath, codeType, callback) => {
+uuwise.getCode = (imagePath, codeType, callback) => {
   let code, error;
   uuApi.autoRecognition(imagePath, codeType)
     .then((response) => code = response)
